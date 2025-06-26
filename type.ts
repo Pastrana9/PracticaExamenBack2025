@@ -1,28 +1,18 @@
-import { OptionalId, ObjectId } from "mongodb";
+// type.ts
+import { OptionalId } from "mongodb";
 
-// Modelo de restaurante
+/* ===== Modelo Mongo ===== */
 export type RestaurantModel = OptionalId<{
-    name: string,
-    address: string,
-    city: string,
-    phone: string,
-    country: string
+  nombre: string;
+  direccion: string;
+  ciudad: string;
+  pais: string;        // nombre país (obtenido por la API Ninjas)
+  telefono: string;    // con prefijo nacional
 }>;
 
-// Validación de teléfono (API Ninjas)
-export type API_Phone = {
-    is_valid: boolean;
-    country: string;
-};
-
-// Clima actual (API Ninjas)
-export type API_Weather = {
-    temp: number;
-    city: string;
-    country: string;
-};
-
-// Hora local (API Ninjas)
-export type API_Timezone = {
-    datetime: string; // formato "2024-06-25 19:31:06"
-};
+/* ===== Tipos API Ninjas ===== */
+export type API_Phone = { is_valid: boolean; country: string };
+export type API_Country = { name: string; capital: string; iso2: string };
+export type API_City = { latitude: number; longitude: number };
+export type API_Weather = { temp: number };
+export type API_WorldTime = { hour: number; minute: number };
