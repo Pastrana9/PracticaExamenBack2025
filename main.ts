@@ -13,7 +13,7 @@ const client = new MongoClient(MONGO_URL);
 await client.connect();
 console.log("Conectado a MongoDB");
 
-const db = client.db("agenda"); // Puedes poner nombre "restaurantes" si prefieres
+const db = client.db("restaurantes"); 
 const RestaurantCollection = db.collection<RestaurantModel>("restaurants");
 
 const server = new ApolloServer({ typeDefs, resolvers });
